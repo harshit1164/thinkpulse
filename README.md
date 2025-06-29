@@ -2,6 +2,7 @@
 
 ThinkPulse is a modern Python library designed to simplify everyday data science tasks.  
 With ultra-readable syntax, blazing-fast speed, and bilingual (English + Hindi) output, ThinkPulse is the **next-gen Pandas++** for beginners & pros alike.
+[![PyPI version](https://badge.fury.io/py/thinkpulse.svg)](https://pypi.org/project/thinkpulse/)
 
 ---
 
