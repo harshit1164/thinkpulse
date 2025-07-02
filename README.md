@@ -67,7 +67,7 @@ Use pip install -r requirements.txt to install dependencies.
 Made with ❤️ by Harshit Tiwari
 
 📬 Email: tiwariharshit1164@gmail.com
-🔗 GitHub: github.com/your-username
+🔗 GitHub: github.com/harshit1164
 
 📜 License
 MIT License — Free for commercial and educational use.
