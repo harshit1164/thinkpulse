@@ -42,7 +42,7 @@ tp.summary("data.csv", language="hi")          # Hindi
 
 🧪 Installation
 
-pip install thinkpulse  # (coming soon to PyPI)
+pip install thinkpulse
 
 Until then, clone this repo and use it directly.
 
