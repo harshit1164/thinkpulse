@@ -21,7 +21,7 @@ def insight(data, language="en"):
             raise TypeError("Input must be a CSV path or DataFrame.")
 
         if df.empty:
-            print("⚠️ Dataset is empty.")
+            print("Dataset is empty.")
             return
 
         insights = []
@@ -61,4 +61,4 @@ def insight(data, language="en"):
         explain_insights(insights, language)
 
     except FileNotFoundError:
-        print("❌ File not found.")
+        print("File not found.")
