@@ -24,17 +24,17 @@ def detect_bias(data, target, by, language="en"):
             raise TypeError("Input must be CSV path or DataFrame")
 
         if df.empty:
-            print("⚠️ Dataset is empty.")
+            print("Dataset is empty.")
             return
 
         if target not in df.columns or by not in df.columns:
-            print(f"⚠️ Columns '{target}' or '{by}' not found in data.")
+            print(f"Columns '{target}' or '{by}' not found in data.")
             return
 
         contingency = pd.crosstab(df[by], df[target])
 
         if contingency.shape[0] < 2 or contingency.shape[1] < 2:
-            print("⚠️ Not enough categories for bias test.")
+            print("Not enough categories for bias test.")
             return
 
         chi2, p, dof, _ = stats.chi2_contingency(contingency)
@@ -48,6 +48,6 @@ def detect_bias(data, target, by, language="en"):
         explain_bias_result(result, language)
 
     except FileNotFoundError:
-        print("❌ File not found.")
+        print("File not found.")
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
