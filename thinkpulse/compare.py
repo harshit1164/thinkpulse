@@ -18,10 +18,10 @@ def compare_datasets(file1, file2, language="en"):
         df1 = pd.read_csv(file1)
         df2 = pd.read_csv(file2)
     except FileNotFoundError:
-        print("❌ One or both files not found.")
+        print("One or both files not found.")
         return
     except Exception as e:
-        print(f"❌ Error reading files: {e}")
+        print(f"Error reading files: {e}")
         return
 
     report = []
