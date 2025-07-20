@@ -22,17 +22,17 @@ def highlight_outliers(data, column, language="en"):
             raise TypeError("Input must be a CSV path or a DataFrame.")
 
         if df.empty:
-            print("⚠️ Dataset is empty.")
+            print("Dataset is empty.")
             return
 
         if column not in df.columns:
-            print(f"⚠️ Column '{column}' not found.")
+            print(f"Column '{column}' not found.")
             return
 
         series = df[column].dropna()
 
         if not pd.api.types.is_numeric_dtype(series):
-            print(f"⚠️ Column '{column}' is not numeric.")
+            print(f"Column '{column}' is not numeric.")
             return
 
         Q1 = series.quantile(0.25)
@@ -46,6 +46,6 @@ def highlight_outliers(data, column, language="en"):
         explain_outliers(outliers, column, language)
 
     except FileNotFoundError:
-        print("❌ File not found.")
+        print("File not found.")
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f"Unexpected error: {e}")
