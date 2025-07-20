@@ -1,12 +1,12 @@
 def explain_summary(summary, language="en"):
     if language == "hi":
-        print("🔍 डेटा सारांश:")
+        print("डेटा सारांश:")
         print(f"- कुल पंक्तियाँ: {summary['rows']}")
         print(f"- कुल कॉलम: {summary['columns']}")
         print(f"- कॉलम नाम: {', '.join(summary['column_names'])}")
         print(f"- मिसिंग वैल्यू: {summary['missing_values']}")
     else:
-        print("🔍 Data Summary:")
+        print("Data Summary:")
         print(f"- Total rows: {summary['rows']}")
         print(f"- Total columns: {summary['columns']}")
         print(f"- Column names: {', '.join(summary['column_names'])}")
@@ -17,13 +17,13 @@ def explain_summary(summary, language="en"):
 #new functrion to explain summary data
 def explain_summary_data(stats, language="en"):
     if language == "hi":
-        print("📊 कॉलम सारांश:")
+        print("कॉलम सारांश:")
         for col in stats:
             print(f"- {col['name']} ({col['dtype']})")
             print(f"  🔹 यूनिक: {col['unique']} | मिसिंग: {col['missing']}")
             print(f"  🔸 औसत: {col['mean']} | माध्यिका: {col['median']}")
     else:
-        print("📊 Column Summary:")
+        print("Column Summary:")
         for col in stats:
             print(f"- {col['name']} ({col['dtype']})")
             print(f"  🔹 Unique: {col['unique']} | Missing: {col['missing']}")
@@ -34,22 +34,22 @@ def explain_summary_data(stats, language="en"):
 # Function to explain outliers in a dataset
 def explain_outliers(outliers, column, language="en"):
     if outliers.empty:
-        print("✅ No outliers found.")
+        print("No outliers found.")
         return 
 
     if language == "hi":
-        print(f"⚠️ आउटलाइनर पंक्तियाँ ({column}):")
+        print(f"आउटलाइनर पंक्तियाँ ({column}):")
         for idx, row in outliers.iterrows():
             print(f"- पंक्ति {idx + 1}: मान = {row[column]}")
     else:
-        print(f"⚠️ Outlier rows detected in column '{column}':")
+        print(f"Outlier rows detected in column '{column}':")
         for idx, row in outliers.iterrows():
             print(f"- Row {idx + 1}: Value = {row[column]}")
 
 # Function to explain insights derived from a dataset
 def explain_insights(insights, language="en"):
     if language == "hi":
-        print("📌 डेटा अवलोकन:")
+        print("डेटा अवलोकन:")
         for i in insights:
             if i["type"] == "missing":
                 print(f"🔸 कॉलम '{i['column']}' में {i['value']} गायब मान हैं।")
@@ -58,7 +58,7 @@ def explain_insights(insights, language="en"):
             elif i["type"] == "category":
                 print(f"🔹 '{i['column']}' कॉलम में {i['value']} यूनिक प्रविष्टियाँ हैं।")
     else:
-        print("📌 Data Insights:")
+        print("Data Insights:")
         for i in insights:
             if i["type"] == "missing":
                 print(f"🔸 Column '{i['column']}' has {i['value']} missing values.")
@@ -74,11 +74,11 @@ def explain_insights(insights, language="en"):
 
 def explain_comparison(report, language="en"):
     if not report:
-        print("✅ Files are identical.")
+        print("Files are identical.")
         return
 
     if language == "hi":
-        print("📊 तुलना परिणाम:")
+        print("तुलना परिणाम:")
         for r in report:
             if r["type"] == "shape":
                 print(f"🔹 आकार बदला गया: फ़ाइल1 = {r['file1']}, फ़ाइल2 = {r['file2']}")
@@ -89,9 +89,9 @@ def explain_comparison(report, language="en"):
             elif r["type"] == "missing_changed":
                 print(f"🔸 '{r['column']}' कॉलम में मिसिंग मान बदल गए: फ़ाइल1 = {r['file1']}, फ़ाइल2 = {r['file2']}")
             elif r["type"] == "rows_diff":
-                print(f"🔁 पंक्तियाँ बदलीं: फ़ाइल1 = {r['file1']}, फ़ाइल2 = {r['file2']}")
+                print(f"पंक्तियाँ बदलीं: फ़ाइल1 = {r['file1']}, फ़ाइल2 = {r['file2']}")
     else:
-        print("📊 Comparison Report:")
+        print("Comparison Report:")
         for r in report:
             if r["type"] == "shape":
                 print(f"🔹 Shape changed: File1 = {r['file1']}, File2 = {r['file2']}")
@@ -102,7 +102,7 @@ def explain_comparison(report, language="en"):
             elif r["type"] == "missing_changed":
                 print(f"🔸 Missing values changed in '{r['column']}': File1 = {r['file1']}, File2 = {r['file2']}")
             elif r["type"] == "rows_diff":
-                print(f"🔁 Row count changed: File1 = {r['file1']}, File2 = {r['file2']}")
+                print(f"Row count changed: File1 = {r['file1']}, File2 = {r['file2']}")
 
 # Function to explain the analysis of a specific column in a dataset
 def explain_column_output(info):
@@ -110,19 +110,19 @@ def explain_column_output(info):
     lang = info["language"]
 
     if lang == "hi":
-        print(f"📘 कॉलम '{col}' विश्लेषण:")
-        print("🔢 यह एक संख्यात्मक कॉलम है।" if info["dtype"] == "numeric" else "🔠 यह एक श्रेणीबद्ध कॉलम है।")
+        print(f"कॉलम '{col}' विश्लेषण:")
+        print("यह एक संख्यात्मक कॉलम है।" if info["dtype"] == "numeric" else "यह एक श्रेणीबद्ध कॉलम है।")
         print(f"🔸 कुल {info['missing']} गायब मान हैं।")
-        print(f"📊 अद्वितीय मान: {info['unique']} / {info['total']}")
+        print(f"अद्वितीय मान: {info['unique']} / {info['total']}")
         if info["binary_like"]:
-            print("✅ यह एक संभावित टार्गेट कॉलम हो सकता है।")
+            print("यह एक संभावित टार्गेट कॉलम हो सकता है।")
     else:
-        print(f"📘 Column '{col}' analysis:")
-        print("🔢 This is a numeric column." if info["dtype"] == "numeric" else "🔠 This is a categorical column.")
-        print(f"🔸 Missing values: {info['missing']}")
-        print(f"📊 Unique values: {info['unique']} out of {info['total']}")
+        print(f"Column '{col}' analysis:")
+        print("This is a numeric column." if info["dtype"] == "numeric" else "This is a categorical column.")
+        print(f"Missing values: {info['missing']}")
+        print(f"Unique values: {info['unique']} out of {info['total']}")
         if info["binary_like"]:
-            print("✅ This may be a good candidate for a target column.")
+            print("This may be a good candidate for a target column.")
 
 
 # Function to explain cleaned column names after processing
@@ -130,13 +130,13 @@ def explain_column_output(info):
 
 def explain_cleaned_columns(old_cols, new_cols, language="en"):
     if language == "hi":
-        print("🧹 कॉलम नाम सफाई पूरी हुई:")
+        print("कॉलम नाम सफाई पूरी हुई:")
         for old, new in zip(old_cols, new_cols):
-            print(f"🔄 '{old}' ➝ '{new}'")
+            print(f"'{old}' ➝ '{new}'")
     else:
-        print("🧹 Column name cleaning complete:")
+        print("Column name cleaning complete:")
         for old, new in zip(old_cols, new_cols):
-            print(f"🔄 '{old}' ➝ '{new}'")
+            print(f"'{old}' ➝ '{new}'")
 
 
 
@@ -151,16 +151,16 @@ def explain_bias_result(result, language="en"):
     significant = result["significant"]
 
     if language == "hi":
-        print(f"📊 '{by}' और '{target}' के बीच पूर्वाग्रह परीक्षण:")
-        print(f"🔬 p-मूल्य = {p}")
+        print(f"'{by}' और '{target}' के बीच पूर्वाग्रह परीक्षण:")
+        print(f"p-मूल्य = {p}")
         if significant:
-            print("⚠️ सांख्यिकीय रूप से महत्वपूर्ण पूर्वाग्रह पाया गया है।")
+            print("सांख्यिकीय रूप से महत्वपूर्ण पूर्वाग्रह पाया गया है।")
         else:
-            print("✅ कोई पूर्वाग्रह नहीं पाया गया।")
+            print("कोई पूर्वाग्रह नहीं पाया गया।")
     else:
-        print(f"📊 Bias test between '{by}' and '{target}':")
-        print(f"🔬 p-value = {p}")
+        print(f"Bias test between '{by}' and '{target}':")
+        print(f"p-value = {p}")
         if significant:
-            print("⚠️ Statistically significant bias detected.")
+            print("Statistically significant bias detected.")
         else:
-            print("✅ No significant bias detected.")
+            print("No significant bias detected.")
