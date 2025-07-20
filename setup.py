@@ -4,8 +4,8 @@ setup(
     name="thinkpulse",
     version="0.1",
     description="The simplest, fastest, and bilingual data science toolkit",
-    author="Your Name",
-    author_email="your@email.com",
+    author="Harshit Tiwari",
+    author_email="tiwariharshit1164@gmail.com",
     packages=find_packages(),
     install_requires=[
         "pandas",
