@@ -21,7 +21,7 @@ def analyze(data, language="en"):
             raise TypeError("Input must be a CSV file path or a Pandas DataFrame.")
 
         if df.empty:
-            print("⚠️ The dataset is empty.")
+            print("The dataset is empty.")
             return
 
         num_rows, num_cols = df.shape
@@ -38,8 +38,8 @@ def analyze(data, language="en"):
         explain_summary(summary, language)
 
     except FileNotFoundError:
-        print("❌ File not found. Please check the path.")
+        print("File not found. Please check the path.")
     except pd.errors.EmptyDataError:
-        print("❌ File is empty or not a valid CSV.")
+        print("File is empty or not a valid CSV.")
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f"Unexpected error: {e}")
